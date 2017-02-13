@@ -19,6 +19,7 @@ func main() {
 		fmt.Println("Resolution error", err.Error())
 		os.Exit(1)
 	}
-	fmt.Printf("Resolved address is: %v", addr.String())
+	fmt.Printf("Resolved address is: %v\n", addr.String())
+	fmt.Printf("Result is: %#v, type %T\n", addr, addr)
 	os.Exit(0)
 }
