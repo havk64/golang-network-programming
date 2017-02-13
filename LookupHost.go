@@ -24,10 +24,19 @@ func main() {
 	for i, s := range addrs {
 		fmt.Printf(s)
 		if i == len-1 {
-			fmt.Printf("}")
+			fmt.Printf("}\n")
 		} else {
 			fmt.Printf(", ")
 		}
 	}
+
+	cname, err := net.LookupCNAME(name)
+	if err != nil {
+		fmt.Println("Error: ", err.Error())
+		os.Exit(2)
+	}
+
+	fmt.Printf("CNAME is: %s", cname)
+
 	os.Exit(0)
 }
