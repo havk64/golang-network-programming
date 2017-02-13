@@ -1,3 +1,6 @@
+// Usage examples:
+//  $ go run resolveTCPAddr.go tcp 192.168.1.1:22
+//  $ go run resolveTCPAddr.go tcp [www.golang.org]:53
 package main
 
 import (
