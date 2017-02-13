@@ -11,7 +11,7 @@ import (
 
 func main() {
 	if len(os.Args) != 3 {
-		fmt.Printf("Usage: %s <network-type> <address-with-port>\n", os.Args[0])
+		fmt.Printf("Usage: %s <network-type> <address:port>\n", os.Args[0])
 		os.Exit(1)
 	}
 
