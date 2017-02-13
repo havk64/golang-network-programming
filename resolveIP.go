@@ -20,6 +20,6 @@ func main() {
 		os.Exit(1)
 	}
 	fmt.Printf("Resolved address is: %v\n", addr.String())
-	fmt.Printf("Result is: %#v, type %T\n", addr, addr)
+	fmt.Printf("Result is: %#v\n", addr)
 	os.Exit(0)
 }
