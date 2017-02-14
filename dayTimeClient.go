@@ -21,11 +21,14 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Address error, %s\n", err.Error())
 		os.Exit(1)
 	}
+	// Optionally prints the IP address:(uncomment the line below)
+	// fmt.Printf("IP: %s\n", addr.IP)
+	//
 	// Create a TCP Socket and connect to address:port from the TCPAddr struct
 	// and returns a file descriptor
 	conn, err := net.DialTCP("tcp", nil, addr)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Socket error %s\n", err.Error())
+		fmt.Fprintf(os.Stderr, "Connection error: %s\n", err.Error())
 		os.Exit(1)
 	}
 	// Create a little buffer to read the http response
