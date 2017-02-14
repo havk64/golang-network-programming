@@ -32,8 +32,13 @@ func main() {
 	for {
 		n, err := conn.Read(buf[0:])
 		if err != nil {
-			return
+			if err.Error() == "EOF" {
+				break
+			}
+			fmt.Fprintf(os.Stderr, "Read error: %s\n", err.Error())
+			os.Exit(1)
 		}
 		fmt.Printf("%s", string(buf[0:n]))
 	}
+	os.Exit(0)
 }
