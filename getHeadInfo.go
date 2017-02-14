@@ -19,9 +19,10 @@ func main() {
 
 	conn, err := net.DialTCP("tcp", nil, tcpAddr)
 	checkError("Socket error", err)
-	fmt.Printf("conn: %#v\n", conn)
 
-	_, err = conn.Write([]byte("HEAD / HTTP/1.0\r\n\r\n"))
+	_, err = conn.Write([]byte("HEAD / HTTP/1.0\r\n" +
+		"User-Agent: Golang Tcp client\r\n" +
+		"\r\n"))
 	checkError("Write error", err)
 
 	result, err := ioutil.ReadAll(conn)
