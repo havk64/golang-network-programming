@@ -6,7 +6,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"net"
 	"os"
 )
@@ -29,11 +28,12 @@ func main() {
 		os.Exit(1)
 	}
 
-	response, err := ioutil.ReadAll(conn)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Read error %s\n", err.Error())
+	buf := make([]byte, 64)
+	for {
+		n, err := conn.Read(buf[0:])
+		if err != nil {
+			return
+		}
+		fmt.Printf("%s", string(buf[0:n]))
 	}
-	fmt.Printf("%s", string(response))
-
-	os.Exit(0)
 }
