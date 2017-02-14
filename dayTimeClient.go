@@ -44,5 +44,4 @@ func main() {
 		} // Prints the response(type []byte) as string
 		fmt.Printf("%s", string(buf[0:n]))
 	}
-	os.Exit(0)
 }

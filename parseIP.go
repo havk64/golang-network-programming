@@ -20,5 +20,4 @@ func main() {
 		fmt.Printf("The address is %v, type %T\n", addr.String(), addr)
 		fmt.Printf("Its raw representation is: %#v\n", addr)
 	}
-	os.Exit(0)
 }

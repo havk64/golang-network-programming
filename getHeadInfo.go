@@ -32,8 +32,6 @@ func main() {
 	checkError("Read error", err)
 
 	fmt.Println(string(result))
-
-	os.Exit(0)
 }
 
 func checkError(s string, err error) {

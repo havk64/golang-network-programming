@@ -35,8 +35,6 @@ func main() {
 	checkError("Read", err)
 	// Prints the response(type []byte) as string
 	fmt.Println(string(buf[0:n]))
-
-	os.Exit(0)
 }
 
 func checkError(s string, err error) {

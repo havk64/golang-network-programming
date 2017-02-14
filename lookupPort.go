@@ -22,5 +22,4 @@ func main() {
 	}
 
 	fmt.Printf("Service port: %d", port)
-	os.Exit(0)
 }

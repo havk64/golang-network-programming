@@ -26,5 +26,4 @@ func main() {
 	fmt.Printf("Leading ones count is: %d\n", ones)
 	fmt.Printf("Mask is (hex): %v\n", mask.String())
 	fmt.Printf("Network is: %v\n", network.String())
-	os.Exit(0)
 }

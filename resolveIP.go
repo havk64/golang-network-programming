@@ -21,5 +21,4 @@ func main() {
 	}
 	fmt.Printf("Resolved address is: %v\n", addr.String())
 	fmt.Printf("Result is: %#v\n", addr)
-	os.Exit(0)
 }

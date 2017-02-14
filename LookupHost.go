@@ -37,6 +37,4 @@ func main() {
 	}
 
 	fmt.Printf("CNAME is: %s", cname)
-
-	os.Exit(0)
 }
