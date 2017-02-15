@@ -26,14 +26,14 @@ func main() {
 func handleClient(conn net.Conn) {
 	defer conn.Close()
 
-	var buf [512]byte
+	buf := make([]byte, 512)
 	for {
-		n, err := conn.Read(buf[0:])
+		_, err := conn.Read(buf)
 		if err != nil {
 			return
 		}
-		fmt.Println(string(buf[0:]))
-		_, err2 := conn.Write(buf[0:n])
+
+		_, err2 := conn.Write(buf)
 		if err2 != nil {
 			return
 		}
