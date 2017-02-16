@@ -34,7 +34,7 @@ func main() {
 	// Create a little buffer to read the http response
 	buf := make([]byte, 64)
 	for { // The conn file descriptor is an 'io.Reader' so it implements the Read method
-		n, err := conn.Read(buf[0:])
+		_, err := conn.Read(buf)
 		if err != nil {
 			if err.Error() == "EOF" { // Exit loop when read is done
 				break
@@ -42,6 +42,6 @@ func main() {
 			fmt.Fprintf(os.Stderr, "Read error: %s\n", err.Error())
 			os.Exit(1)
 		} // Prints the response(type []byte) as string
-		fmt.Printf("%s", string(buf[0:n]))
+		fmt.Printf("%s", string(buf))
 	}
 }
