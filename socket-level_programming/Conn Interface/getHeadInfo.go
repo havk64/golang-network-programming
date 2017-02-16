@@ -17,9 +17,12 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Usage: %s <host:port>", os.Args[0])
 		os.Exit(1)
 	}
+	// The options for protocol are: tcp, tcp4(ipv4), tcp6(ipv6), upd, udp4(ipv4),
+	// upd6(ipv6), ip, ip4(ipv4), ip6(ipv6).
+	protocol := "tcp"
 	// Create the socket, connect and return its file descriptor
 	// The Dial method works for create for TCP or UPD sockets
-	conn, err := net.Dial("tcp", os.Args[1])
+	conn, err := net.Dial(protocol, os.Args[1])
 	checkError("Socket error", err)
 	// Send the HEAD request
 	_, err = conn.Write([]byte("HEAD / HTTP/1.0\r\n" +
