@@ -8,8 +8,12 @@ import (
 
 func main() {
 
+	// The options for protocol are: tcp, tcp4(ipv4), tcp6(ipv6), upd, udp4(ipv4),
+	// upd6(ipv6), ip, ip4(ipv4), ip6(ipv6).
+	protocol := "tcp"
 	service := ":1200"
-	listener, err := net.Listen("tcp", service)
+
+	listener, err := net.Listen(protocol, service)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Connection: %s\n", err.Error())
 		os.Exit(1)
