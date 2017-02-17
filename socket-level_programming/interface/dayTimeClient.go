@@ -24,14 +24,14 @@ func main() {
 		os.Exit(1)
 	}
 	counter := 0
-	for {
+	for { // The conn file descriptor is an 'io.Reader' so it implements the Read method
 		buf := make([]byte, 64)
 		if _, err := conn.Read(buf); err != nil {
-			if err.Error() == "EOF" {
+			if err.Error() == "EOF" { // Exit loop when read is done
 				break
-			}
+			} // Otherwise report the read error
 			fmt.Fprintf(os.Stderr, "Read: %s\n", err.Error())
-		}
+		} // Prints the response(type []byte) as string
 		fmt.Printf("%s", string(buf))
 		counter++
 	}
