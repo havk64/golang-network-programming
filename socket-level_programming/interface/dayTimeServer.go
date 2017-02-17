@@ -23,8 +23,8 @@ func main() {
 		os.Exit(1)
 	}
 	// Prints an init message
-	fmt.Printf("Listening on localhost%s...\n", service)
-
+	fmt.Printf("Listening on %s...\n", listener.Addr())
+	defer listener.Close()
 	for {
 		conn, err := listener.Accept()
 		if err != nil {
