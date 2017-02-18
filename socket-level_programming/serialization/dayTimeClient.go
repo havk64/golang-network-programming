@@ -1,4 +1,4 @@
-// Simplifyied verion of Daytime Client
+// Daytime Client with deserialization with asn1
 // It uses Dial method which uses the "conn" interface and
 // works both with TCP and UDP
 package main
