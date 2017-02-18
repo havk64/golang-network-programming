@@ -28,7 +28,7 @@ func main() {
 	counter := 0
 	for { // The conn file descriptor is an 'io.Reader' so it implements the Read method
 		buf := make([]byte, 64)
-		if _, err := conn.Read(buf); err != nil {
+		if _, err = conn.Read(buf); err != nil {
 			if err.Error() == "EOF" { // Exit loop when read is done
 				break
 			} // Otherwise report the read error
