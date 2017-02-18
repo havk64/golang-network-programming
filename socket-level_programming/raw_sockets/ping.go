@@ -9,15 +9,19 @@ import (
 )
 
 func main() {
+
 	if len(os.Args) != 2 {
 		fmt.Fprintf(os.Stderr, "Usage: %s <host>\n", os.Args[0])
 		os.Exit(1)
 	}
 
-	addr, err := net.ResolveIPAddr("ip", os.Args[1])
-	checkError("Resolve", err)
+	raddr, err := net.ResolveIPAddr("ip4", os.Args[1])
+	checkError("Resolve remote", err)
 
-	conn, err := net.DialIP("ip4:icmp", addr, addr)
+	laddr, err := net.ResolveIPAddr("ip4", "127.0.0.1")
+	checkError("Resolve local", err)
+
+	conn, err := net.DialIP("ip4:icmp", laddr, raddr)
 	checkError("DialIP", err)
 
 	var msg [512]byte
