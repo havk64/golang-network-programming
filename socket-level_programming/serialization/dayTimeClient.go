@@ -34,12 +34,14 @@ func main() {
 			} // Otherwise report the read error
 			fmt.Fprintf(os.Stderr, "Read: %s\n", err.Error())
 		} // Prints the response(type []byte) as string
+
 		var newTime time.Time
-		mdata, err := asn1.Unmarshal(buf, &newTime)
+		_, err = asn1.Unmarshal(buf, &newTime)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Unmarshall: %s\n", err.Error())
+			os.Exit(1)
 		}
-		fmt.Printf("%s", string(mdata))
+		fmt.Printf("%v\n", newTime.String())
 		counter++
 	}
 	fmt.Printf("\nCounter: %d\n", counter)
