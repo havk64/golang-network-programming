@@ -8,18 +8,7 @@ import (
 )
 
 func main() {
-	person := Person{
-		Name: Name{
-			Family:   "de Oliveira",
-			Personal: "Alexandro"},
-		Email: []Email{
-			Email{
-				Kind:    "home",
-				Address: "alexandro.deoliveira@icloud.com"},
-			Email{
-				Kind:    "school",
-				Address: "alexandro.oliveira@holbertonschool.com"}}}
-
+	// The 'person' variable is defined in the file person.go
 	saveGob("person.gob", person)
 }
 

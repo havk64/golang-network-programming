@@ -26,3 +26,15 @@ func (p Person) String() string {
 	}
 	return s
 }
+
+var person = Person{
+	Name: Name{
+		Family:   "de Oliveira",
+		Personal: "Alexandro"},
+	Email: []Email{
+		Email{
+			Kind:    "home",
+			Address: "alexandro.deoliveira@icloud.com"},
+		Email{
+			Kind:    "school",
+			Address: "alexandro.oliveira@holbertonschool.com"}}}

@@ -9,17 +9,6 @@ import (
 )
 
 func main() {
-	person = Person{
-		Name: Name{
-			Family:   "de Oliveira",
-			Personal: "Alexandro"},
-		Email: []Email{
-			Email{
-				Kind:    "home",
-				Address: "alexandro.deoliveira@icloud.com"},
-			Email{
-				Kind:    "school",
-				Address: "alexandro.oliveira@holbertonschool.com"}}}
 
 	if len(os.Args) != 2 {
 		fmt.Println("Usage: ", os.Args[0], "host:port")
@@ -40,6 +29,7 @@ func main() {
 	decoder := gob.NewDecoder(conn)
 
 	for n := 0; n < 10; n++ {
+		// The 'person' variable is defined in the file person.go
 		encoder.Encode(person)
 		var newPerson Person
 		decoder.Decode(&newPerson)
