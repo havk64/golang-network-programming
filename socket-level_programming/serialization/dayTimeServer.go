@@ -1,6 +1,4 @@
-// Simplifyied verion of Daytime Server
-// It uses Listen method which uses the "conn" interface and
-// works with TCP and UDP
+// Daytime Server using asn1 serialization
 package main
 
 import (
@@ -33,6 +31,7 @@ func main() {
 		}
 
 		daytime := time.Now()
+		// Marshals the message before send it
 		mdata, err := asn1.Marshal(daytime)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Marshall: %s\n", err.Error())
