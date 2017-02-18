@@ -6,9 +6,16 @@ import (
 	"io"
 	"net"
 	"os"
+	"time"
 )
 
 func main() {
+	tick := time.NewTicker(time.Second)
+	go func() {
+		for _ = range tick.C {
+			fmt.Printf(".")
+		}
+	}()
 
 	if len(os.Args) != 2 {
 		fmt.Fprintf(os.Stderr, "Usage: %s <host>\n", os.Args[0])
@@ -45,7 +52,8 @@ func main() {
 	_, err = conn.Read(msg[0:])
 	checkError("Read", err)
 
-	fmt.Println("Got response")
+	tick.Stop()
+	fmt.Println("\nGot response")
 	if msg[5] == 13 {
 		fmt.Println("identifier matches")
 	}
