@@ -1,3 +1,4 @@
+// Needs to be compiled with the file person.go
 package main
 
 import (
@@ -5,21 +6,6 @@ import (
 	"fmt"
 	"os"
 )
-
-type Person struct {
-	Name  Name    `json:"name"`
-	Email []Email `json:"emails"`
-}
-
-type Name struct {
-	Family   string `json:"family"`
-	Personal string `json:"personal"`
-}
-
-type Email struct {
-	Kind    string `json:"kind"`
-	Address string `json:"address"`
-}
 
 func main() {
 	person := Person{

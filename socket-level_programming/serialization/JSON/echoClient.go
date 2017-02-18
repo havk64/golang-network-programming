@@ -1,3 +1,4 @@
+// Needs to be compiled with the file person.go
 package main
 
 import (
@@ -6,24 +7,6 @@ import (
 	"net"
 	"os"
 )
-
-// Person struct
-type Person struct {
-	Name  Name    `json:"name"`
-	Email []Email `json:"emails"`
-}
-
-// Name struct
-type Name struct {
-	Family   string `json:"family"`
-	Personal string `json:"personal"`
-}
-
-// Email struct
-type Email struct {
-	Kind    string `json:"kind"`
-	Address string `json:"address"`
-}
 
 // Implement fmt.Stringer interface
 func (p Person) String() string {
