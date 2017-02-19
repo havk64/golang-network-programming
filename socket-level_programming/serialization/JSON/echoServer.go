@@ -8,15 +8,6 @@ import (
 	"os"
 )
 
-// Implement fmt.Stringer interface
-func (p Person) String() string {
-	s := p.Name.Personal + " " + p.Name.Family
-	for _, v := range p.Email {
-		s += "\n" + v.Kind + ": " + v.Address
-	}
-	return s
-}
-
 func main() {
 	// The options for protocol are: tcp, tcp4(ipv4), tcp6(ipv6), upd, udp4(ipv4),
 	// upd6(ipv6), ip, ip4(ipv4), ip6(ipv6).
