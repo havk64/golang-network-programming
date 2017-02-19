@@ -1,0 +1,28 @@
+syntax = "proto3";
+package main;
+
+message Person {
+  int32 id = 1;
+
+  message Name {
+    string Family = 1;
+    string Personal = 2;
+  }
+
+  enum EmailKind {
+    SCHOOL = 0;
+    HOME = 1;
+    WORK = 2;
+  }
+
+  message Email {
+    string address = 1;
+    EmailKind kind = 2;
+  }
+  repeated Name name = 2;
+  repeated Email emails = 3;
+}
+
+message AddressBook {
+  repeated Person people = 1;
+}
