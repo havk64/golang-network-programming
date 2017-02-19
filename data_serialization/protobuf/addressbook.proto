@@ -16,10 +16,10 @@ message Person {
   }
 
   message Email {
-    string address = 1;
-    EmailKind kind = 2;
+    EmailKind kind = 1;
+    string address = 2;
   }
-  repeated Name name = 2;
+  Name name = 2;
   repeated Email emails = 3;
 }
 
