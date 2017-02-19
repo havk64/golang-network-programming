@@ -8,15 +8,6 @@ import (
 	"os"
 )
 
-// Implement fmt.Stringer interface
-func (p Person) String() string {
-	s := p.Name.Personal + " " + p.Name.Family
-	for _, v := range p.Email {
-		s += "\n" + v.Kind + ": " + v.Address
-	}
-	return s
-}
-
 func main() {
 	person := Person{
 		Name: Name{

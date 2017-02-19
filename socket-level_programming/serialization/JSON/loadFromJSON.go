@@ -31,12 +31,3 @@ func loadJSON(fileName string, key interface{}) {
 
 	inFile.Close()
 }
-
-// Implement fmt.Stringer interface
-func (p Person) String() string {
-	s := p.Name.Personal + " " + p.Name.Family
-	for _, v := range p.Email {
-		s += "\n" + v.Kind + ": " + v.Address
-	}
-	return s
-}
