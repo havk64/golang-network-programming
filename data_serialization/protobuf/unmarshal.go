@@ -8,26 +8,27 @@ import (
 	"os"
 
 	"github.com/golang/protobuf/proto"
+	pb "github.com/havk64/golang-network-programming/data_serialization/protobuf/addressbook"
 )
 
-func writePerson(w io.Writer, p *Person) {
+func writePerson(w io.Writer, p *pb.Person) {
 	fmt.Fprintln(w, "Person ID:", p.Id)
 	fmt.Fprintf(w, "  Name: %s %s\n", p.Name.Personal, p.Name.Family)
 
 	for _, v := range p.Emails {
 		switch v.Kind {
-		case Person_SCHOOL:
+		case pb.Person_SCHOOL:
 			fmt.Fprint(w, "  School email: ")
-		case Person_HOME:
+		case pb.Person_HOME:
 			fmt.Fprint(w, "  Home email: ")
-		case Person_WORK:
+		case pb.Person_WORK:
 			fmt.Fprint(w, "  Work email: ")
 		}
 		fmt.Fprintln(w, v.Address)
 	}
 }
 
-func listPeople(w io.Writer, book *AddressBook) {
+func listPeople(w io.Writer, book *pb.AddressBook) {
 	for _, p := range book.People {
 		writePerson(w, p)
 	}
@@ -45,7 +46,7 @@ func main() {
 	if err != nil {
 		log.Fatalln("Error reading file:", err)
 	}
-	book := &AddressBook{}
+	book := &pb.AddressBook{}
 	if err := proto.Unmarshal(in, book); err != nil {
 		log.Fatalln("Failed to parse address book:", err)
 	}
