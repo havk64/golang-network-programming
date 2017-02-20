@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/golang/protobuf/proto"
+	pb "github.com/havk64/golang-network-programming/data_serialization/protobuf/addressbook"
 )
 
 func main() {
@@ -16,21 +17,21 @@ func main() {
 	}
 	fname := os.Args[1]
 	//Define a person using struct literal
-	person := &Person{
+	person := &pb.Person{
 		Id: 1234,
-		Name: &Person_Name{
+		Name: &pb.Person_Name{
 			Family:   "de Oliveira",
 			Personal: "Alexandro",
 		},
-		Emails: []*Person_Email{
-			{Kind: Person_HOME,
+		Emails: []*pb.Person_Email{
+			{Kind: pb.Person_HOME,
 				Address: "alexandro.deoliveira@icloud.com"},
-			{Kind: Person_SCHOOL,
+			{Kind: pb.Person_SCHOOL,
 				Address: "alexandro.oliveira@holbertonschool.com"},
 		},
 	}
 	// Add person to the address book
-	book := &AddressBook{People: []*Person{person}}
+	book := &pb.AddressBook{People: []*pb.Person{person}}
 	// Marshalling the address book
 	out, err := proto.Marshal(book)
 	if err != nil {
