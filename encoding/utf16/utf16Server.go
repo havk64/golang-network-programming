@@ -24,6 +24,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Socket: %s\n", err.Error())
 		os.Exit(1)
 	}
+	fmt.Printf("Listening on %s\n", listener.Addr())
 
 	for {
 		conn, err := listener.Accept()
