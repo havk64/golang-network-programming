@@ -13,7 +13,9 @@ A collection of programatic examples and experiments using network tools on Gola
   - [ASN.1](data_serialization/ASN.1)
   - [Gob](data_serialization/Gob)
   - [JSON](data_serialization/JSON)
+  - [Base64](data_serialization/base64)
   - [Protocol Buffer](data_serialization/protobuf)
+    - [Address Book](data_serialization/protobuf/addressbook) (.proto example file)
 
 - [Application Level Protocols](application-level_protocols)
   - [FTP](application-level_protocols/ftp)
