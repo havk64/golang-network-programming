@@ -14,3 +14,9 @@ A collection of programatic examples and experiments using network tools on Gola
   - [Gob](data_serialization/Gob)
   - [JSON](data_serialization/JSON)
   - [Protocol Buffer](data_serialization/protobuf)
+
+- [Application Level Protocols](application-level_protocols)
+  - [FTP](application-level_protocols/ftp)
+
+- [Encoding](encoding)
+  - [UTF-16](encoding/utf16)
