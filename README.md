@@ -22,3 +22,9 @@ A collection of programatic examples and experiments using network tools on Gola
 
 - [Encoding](encoding)
   - [UTF-16](encoding/utf16)
+
+- [Security](security)
+  - [MD5](security/md5)
+  - [SHA256](security/sha256)
+  - [HMAC](security/hmac)
+  - [Blowfish](security/blowfish)
