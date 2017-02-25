@@ -1,3 +1,5 @@
+// This program implements a Keyed-Hash Message Authentication Code (HMAC).
+// An HMAC is a cryptographic hash that uses a key to sign a message.
 package main
 
 import (
@@ -18,6 +20,7 @@ func main() {
 	}
 }
 
+// createHMAC function return a SHA256 hash using a message and a key.
 func createHMAC(message, key []byte) []byte {
 
 	hash := hmac.New(sha256.New, key)
@@ -26,6 +29,7 @@ func createHMAC(message, key []byte) []byte {
 	return hash.Sum(nil)
 }
 
+// checkMAC function verifies the hash by recomputing it using the same key.
 func checkMAC(message, messageMAC, key []byte) ([]byte, bool) {
 
 	hash := hmac.New(sha256.New, key)
