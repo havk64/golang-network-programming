@@ -1,3 +1,5 @@
+// Calculates the md5 checksum of a sequence of bytes and prints it in for parts
+// of 4 bytes each(16 bytes total).
 package main
 
 import (
@@ -13,7 +15,8 @@ func main() {
 	hash.Write(bytes)
 	hashSize := hash.Size()
 	hashValue := hash.Sum(nil)
-	// fmt.Printf("hashvalue: %x\n", hashValue)
+	// Print the full hash
+	// fmt.Printf("%x\n", hashValue)
 	splitted := splitHash(hashValue, hashSize)
 	fmt.Printf("%s\n", splitted)
 }
@@ -30,7 +33,5 @@ func splitHash(hash []byte, size int) string {
 			uint32(hash[n+3])
 		str += fmt.Sprintf("%x ", val)
 	}
-
-	str += "\n"
 	return str
 }
