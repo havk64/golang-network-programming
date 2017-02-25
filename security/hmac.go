@@ -11,8 +11,8 @@ func main() {
 	key := []byte("My $3cr3t k3y")
 	messageMAC := createHMAC(message, key)
 
-	if ok := checkMAC(message, messageMAC, key); ok {
-		fmt.Printf("Ok!\nMessage: %s\nChecksum: %x\n", string(message), messageMAC)
+	if checksum, ok := checkMAC(message, messageMAC, key); ok {
+		fmt.Printf("Ok!\nMessage: %s\nChecksum: %x\n", string(message), checksum)
 	} else {
 		fmt.Println("Checksum error!")
 	}
@@ -26,11 +26,11 @@ func createHMAC(message, key []byte) []byte {
 	return hash.Sum(nil)
 }
 
-func checkMAC(message, messageMAC, key []byte) bool {
+func checkMAC(message, messageMAC, key []byte) ([]byte, bool) {
 
 	hash := hmac.New(sha256.New, key)
 
 	hash.Write(message)
 	expectedMAC := hash.Sum(nil)
-	return hmac.Equal(messageMAC, expectedMAC)
+	return expectedMAC, hmac.Equal(messageMAC, expectedMAC)
 }
