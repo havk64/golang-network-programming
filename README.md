@@ -28,3 +28,4 @@ A collection of programatic examples and experiments using network tools on Gola
   - [SHA256](security/sha256)
   - [HMAC](security/hmac)
   - [Blowfish](security/blowfish)
+  - [Public Key](security/public_key)
