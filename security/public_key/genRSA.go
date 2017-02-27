@@ -11,6 +11,8 @@ import (
 	"os"
 )
 
+// rsaStringer is used to allow the implementation of a Stringer to
+// rsa.PrivateKey that is the generated key.
 type rsaStringer struct {
 	*rsa.PrivateKey
 }
@@ -23,7 +25,7 @@ func main() {
 	checkError(err)
 
 	r := rsaStringer{key}
-	fmt.Printf("%s\n", r)
+	fmt.Printf("%s\n", r) // Prints the rsa key struct
 
 	publicKey := key.PublicKey
 
@@ -56,6 +58,8 @@ func savePEMKey(fileName string, key *rsa.PrivateKey) {
 	outFile.Close()
 }
 
+// String method implements stringer interface on our custom type in order to
+// represent the struct as a formatted string
 func (r rsaStringer) String() string {
 	var stream bytes.Buffer
 	fmt.Fprintf(&stream, "rsa.PrivateKey{\n")
